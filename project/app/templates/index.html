@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+<h1><a href="{% url 'create' %}">Добавить книгу</a></h1>
+<hr>
+{% for book in books %}
+    <h1>Книга: {{ book.title }}</h1>
+    <h2>Автор: {{ book.author }}</h2>
+<a href="{% url 'delete' book.pk %}">Удалить</a> |
+<a href="{% url 'update' book.pk %}">Обновить</a> |
+<a href="{% url 'detail' book.pk %}">full name</a>
+<hr>
+{% endfor %}
+
+<style>
+    *{
+        font-family: Verdana;
+        text-decoration: none;
+    }
+</style>
+</body>
+</html>
